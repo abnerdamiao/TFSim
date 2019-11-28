@@ -351,7 +351,15 @@ int sc_main(int argc, char *argv[])
             fila = true;
     });
     bench_sub->append("Potenciação de um número (x^n)",[&](menu::item_proxy &ip){
-        string path = "in/benchmarks/numeric_exponent.txt";       
+        string path = "in/benchmarks/exponent.txt";       
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
+    bench_sub->append("Fatorial de um número (x!)",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/factorial.txt";       
         inFile.open(path);
         if(!add_instructions(inFile,instruction_queue,instruct))
             show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
@@ -392,6 +400,14 @@ int sc_main(int argc, char *argv[])
     });
     bench_sub->append("Stress das unidades de multiplicação/divisão (mul/div)",[&](menu::item_proxy &ip){
         string path = "in/benchmarks/mul_div_stress.txt";     
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
+    bench_sub->append("Stress de múltiplas unidades (add/sub e mul/div)",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/multi_stress.txt";     
         inFile.open(path);
         if(!add_instructions(inFile,instruction_queue,instruct))
             show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
