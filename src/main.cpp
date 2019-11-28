@@ -334,8 +334,40 @@ int sc_main(int argc, char *argv[])
         else
             fila = true;
     });
+    bench_sub->append("Algoritmo de Euclides (cálculo do MDC)",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/euclidean_algorithm.txt";       
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
+    bench_sub->append("PVI por método de Euler",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/euler_pvi.txt";       
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
+    bench_sub->append("Potenciação de um número (x^n)",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/numeric_exponent.txt";       
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
     bench_sub->append("Busca em Vetor",[&](menu::item_proxy &ip){
         string path = "in/benchmarks/vector_search.txt";        
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
+    bench_sub->append("Média aritmética simples de um vetor",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/vector_arithmetic_mean.txt";        
         inFile.open(path);
         if(!add_instructions(inFile,instruction_queue,instruct))
             show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
@@ -358,8 +390,32 @@ int sc_main(int argc, char *argv[])
         else
             fila = true;
     });
+    bench_sub->append("Stress por especulação (predição de desvio)",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/spec_stress.txt";     
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
     bench_sub->append("Stall por hazard estrutural (Adds)",[&](menu::item_proxy &ip){
         string path = "in/benchmarks/res_stations_stall.txt";       
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
+    bench_sub->append("Conflito WAW",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/waw_conflict.txt";       
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
+    bench_sub->append("Especulação e conflito WAW",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/spec_waw_conflict.txt";       
         inFile.open(path);
         if(!add_instructions(inFile,instruction_queue,instruct))
             show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
