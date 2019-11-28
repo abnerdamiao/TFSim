@@ -382,6 +382,22 @@ int sc_main(int argc, char *argv[])
         else
             fila = true;
     });
+    bench_sub->append("Stress das unidades de soma/subtração (add/sub)",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/add_sub_stress.txt";     
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
+    bench_sub->append("Stress das unidades de multiplicação/divisão (mul/div)",[&](menu::item_proxy &ip){
+        string path = "in/benchmarks/mul_div_stress.txt";     
+        inFile.open(path);
+        if(!add_instructions(inFile,instruction_queue,instruct))
+            show_message("Arquivo inválido","Não foi possível abrir o arquivo!");
+        else
+            fila = true;
+    });
     bench_sub->append("Stress de Memória (Stores)",[&](menu::item_proxy &ip){
         string path = "in/benchmarks/store_stress.txt";     
         inFile.open(path);
@@ -414,7 +430,7 @@ int sc_main(int argc, char *argv[])
         else
             fila = true;
     });
-    bench_sub->append("Especulação e conflito WAW",[&](menu::item_proxy &ip){
+    bench_sub->append("Especulação com conflito WAW",[&](menu::item_proxy &ip){
         string path = "in/benchmarks/spec_waw_conflict.txt";       
         inFile.open(path);
         if(!add_instructions(inFile,instruction_queue,instruct))
